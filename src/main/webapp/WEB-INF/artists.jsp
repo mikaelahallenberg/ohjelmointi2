@@ -18,7 +18,7 @@
     <p>Below is a list of albums. You can search albums found in the database with a keyword. You can also remove artists from the database.</p>
     <section>
         <form action="/album-search" method="get">
-            <label>Name of album: <input type="string" name="album" value="album"><input type="submit" value="Submit"></label>
+            <label>Name of album: <input type="string" name="album" value=""><input type="submit" value="Submit"></label>
         </form>
     </section>
     <button onclick="location.href='/artist-new'">Go to add a new artist page</button>

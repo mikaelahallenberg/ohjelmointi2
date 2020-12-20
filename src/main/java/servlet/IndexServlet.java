@@ -20,12 +20,9 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         List<Artist> allArtists = artistDao.getAllArtists();
 
-
         req.setAttribute("allArtists", allArtists);
-
-        req.getRequestDispatcher("/WEB-INF/findAlbum.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/artists.jsp").forward(req, resp);
     }
 }

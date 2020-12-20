@@ -22,19 +22,17 @@ public class ArtistServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
          List<Artist> allArtists = artistDao.getAllArtists();
 
-         req.setAttribute("allArtists", allArtists);
-
-        req.getRequestDispatcher("/WEB-INF/findAlbum.jsp").forward(req, resp);
+        req.setAttribute("allArtists", allArtists);
+        req.getRequestDispatcher("/WEB-INF/artists.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
         long id = Long.parseLong(req.getParameter("id"));
         boolean success = artistDao.deleteArtist(id);
 
-        List<Artist> allArtists = artistDao.getAllArtists();
-
         req.setAttribute("deleteResult", success);
+
         if (success) {
             resp.setStatus(200);
         } else {

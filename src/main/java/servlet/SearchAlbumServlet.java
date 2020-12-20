@@ -22,12 +22,9 @@ public class SearchAlbumServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String albumName = req.getParameter("album");
-
         List<Album> allAlbums = albumDao.getAlbumByKeyword(albumName);
 
         req.setAttribute("allAlbums", allAlbums);
-
-        // forward the request to the createArtist.jsp page
-        req.getRequestDispatcher("/WEB-INF/findAlbum.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/artists.jsp").forward(req, resp);
     }
 }
