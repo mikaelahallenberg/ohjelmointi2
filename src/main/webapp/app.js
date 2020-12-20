@@ -9,16 +9,3 @@ async function removeArtist(id, artistName) {
        alert("Could not remove artist");
    }
 }
-
-async function addArtist(artist) {
-    console.log(artist.value)
-    const response = await fetch(`/artist-new?name=${artist.value}`, { method: "POST" });
-    console.log(response)
-    if (response.status === 200) {
-        document.getElementById(`addedArtist`).innerHTML = artist.value;
-    } else {
-        alert("Could not add artist");
-    }
-
-
-}
